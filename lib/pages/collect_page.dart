@@ -44,7 +44,8 @@ class _CollectPageState extends State<CollectPage> {
                 indexPage = index;
               });
             },
-              icon: SvgPicture.asset(
+
+              icon: index == 4  ? getAccount() : SvgPicture.asset(
                 indexPage == index
                     ? icons[index]["active"].toString()
                     : icons[index]["inActive"].toString(),
@@ -66,6 +67,28 @@ class _CollectPageState extends State<CollectPage> {
         LikePage(),
         AccountPage(),
       ],
+    );
+   }
+   Widget getAccount(){
+    return Container(
+      padding: EdgeInsets.all(.5),
+      height: 27 ,
+      width: 27,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          width: indexPage == 4 ?  2 : 1 ,
+          color: indexPage == 4 ? Colors.black : Colors.grey,
+        ),
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius:  BorderRadius.circular(27),
+          image: DecorationImage(
+            image: AssetImage("assets/images/user_5.jpeg"),
+          )
+        ),
+      )
     );
    }
 }
